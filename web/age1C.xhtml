@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Ages Cards</title>
+    </h:head>
+    <h:body>
+        <h1>ages-w005 2014-5-7 17:25  click cardback to get a card from Age I Civil</h1> 
+        <p:accordionPanel>
+
+
+            <p:tab title="Age I Civil cards">
+
+
+                <h:form>
+                    <h:outputText value="#{biz1.remainingCnt}" style="font-size: 60pt" />
+                    <br></br>
+                    <h:commandButton action="#{biz1.showNextCivilCard()}" image="#{biz1.getAgeCivilCardBack(age)}" >
+                        <f:ajax render="@form" />
+                    </h:commandButton>
+                    <h:commandButton action="#{biz1.showPreviousCivilCard()}" image="#{biz1.getAddr(2)}" >
+                        <f:ajax render="@form" />
+                    </h:commandButton>
+                </h:form>
+                <!--                <h:form>
+                                    <h:graphicImage id="p1078" value="/resources/img/p1078.jpg" />
+                                    <p:draggable for="p1078" grid="180,30"  />
+                
+                                    <h:graphicImage id="p1079" value="/resources/img/p1079.jpg" />
+                                    <p:draggable for="p1079" grid="180,30"  />
+                
+                                    <h:graphicImage id="p1080" value="/resources/img/p1080.jpg" />
+                                    <p:draggable for="p1080" grid="180,30"  />
+                
+                                    <h:graphicImage id="p1081" value="/resources/img/p1081.jpg" />
+                                    <p:draggable for="p1081" grid="180,30"  />
+                                </h:form>-->
+
+
+
+            </p:tab>
+            <p:tab title="Age I Military cards">
+                <h1>DOING...===</h1>
+
+
+
+            </p:tab>
+            <p:tab title="xxx">
+                <h3>Images</h3>
+                <p:galleria value="#{biz3.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
+                    <p:graphicImage value="#{image}" alt="Image Description for #{image}" title="#{image}"/>
+                </p:galleria>
+
+            </p:tab>
+            <p:tab title="yyy">
+                <h3>Custom Content</h3>
+                <p:galleria id="contentGalleria" value="#{biz3.cards}" var="card" panelWidth="650" panelHeight="450"
+                            frameWidth="48" frameHeight="65" effectSpeed="1000">
+
+                    <p:graphicImage id="playerImage" value="http://2nd2go.org/ages/img/p#{card.ID}.jpg" alt="" title=""/>
+                    <f:facet name="content">
+                        <h:panelGrid  columns="2" cellpadding="5">
+                            <f:facet name="header">
+                                <p:graphicImage value="http://2nd2go.org/ages/img/p#{card.ID}.jpg" />
+                            </f:facet>
+
+
+
+                            <h:outputText value="卡名:" />
+                            <h:outputText id="card-name" value="#{card.get卡名()}"/>
+                            <h:outputText value="類型" />
+                            <h:outputText id="card-category" value="#{card.get類型()}"/>
+                            <h:outputText value="右上" />
+                            <h:outputText id="card-upperright" value="#{card.get右上()}"/>
+                            <h:outputText value="內容" />
+                            <h:outputText id="card-content" value="#{card.get內容()}"/>
+                           
+
+                        </h:panelGrid>
+                    </f:facet>
+
+                </p:galleria>
+            </p:tab>
+
+        </p:accordionPanel>
+
+    </h:body>
+</html>
+

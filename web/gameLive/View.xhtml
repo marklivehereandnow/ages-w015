@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewGameLiveTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewGameLiveLabel_id}"/>
+                    <h:outputText value="#{gameLiveController.selected.id}" title="#{bundle.ViewGameLiveTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewGameLiveLabel_cardRow}"/>
+                    <h:outputText value="#{gameLiveController.selected.cardRow}" title="#{bundle.ViewGameLiveTitle_cardRow}"/>
+                    <h:outputText value="#{bundle.ViewGameLiveLabel_p1Hand}"/>
+                    <h:outputText value="#{gameLiveController.selected.p1Hand}" title="#{bundle.ViewGameLiveTitle_p1Hand}"/>
+                    <h:outputText value="#{bundle.ViewGameLiveLabel_p2Hand}"/>
+                    <h:outputText value="#{gameLiveController.selected.p2Hand}" title="#{bundle.ViewGameLiveTitle_p2Hand}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{gameLiveController.destroyAndView}" value="#{bundle.ViewGameLiveDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewGameLiveEditLink}"/>
+                <br />
+                <h:commandLink action="#{gameLiveController.prepareCreate}" value="#{bundle.ViewGameLiveCreateLink}" />
+                <br />
+                <h:commandLink action="#{gameLiveController.prepareList}" value="#{bundle.ViewGameLiveShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewGameLiveIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditGameLiveTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditGameLiveLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{gameLiveController.selected.id}" title="#{bundle.EditGameLiveTitle_id}" required="true" requiredMessage="#{bundle.EditGameLiveRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditGameLiveLabel_cardRow}" for="cardRow" />
+                    <h:inputText id="cardRow" value="#{gameLiveController.selected.cardRow}" title="#{bundle.EditGameLiveTitle_cardRow}" required="true" requiredMessage="#{bundle.EditGameLiveRequiredMessage_cardRow}"/>
+                    <h:outputLabel value="#{bundle.EditGameLiveLabel_p1Hand}" for="p1Hand" />
+                    <h:inputText id="p1Hand" value="#{gameLiveController.selected.p1Hand}" title="#{bundle.EditGameLiveTitle_p1Hand}" required="true" requiredMessage="#{bundle.EditGameLiveRequiredMessage_p1Hand}"/>
+                    <h:outputLabel value="#{bundle.EditGameLiveLabel_p2Hand}" for="p2Hand" />
+                    <h:inputText id="p2Hand" value="#{gameLiveController.selected.p2Hand}" title="#{bundle.EditGameLiveTitle_p2Hand}" required="true" requiredMessage="#{bundle.EditGameLiveRequiredMessage_p2Hand}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{gameLiveController.update}" value="#{bundle.EditGameLiveSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditGameLiveViewLink}"/>
+                <br />
+                <h:commandLink action="#{gameLiveController.prepareList}" value="#{bundle.EditGameLiveShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditGameLiveIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
