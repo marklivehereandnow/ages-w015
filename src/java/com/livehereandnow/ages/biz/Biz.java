@@ -54,7 +54,7 @@ public class Biz {
     private String imgSize = "d";
     private String sysMsg;
     private String username;
-    private String player;
+    private String player="guest";
 
     private boolean notAllowNewGame;
 
@@ -75,6 +75,7 @@ public class Biz {
     }
 
     public boolean isAllowed() {
+    
         if (player.equalsIgnoreCase("max")) {
             return true;
         }
@@ -113,8 +114,9 @@ public class Biz {
         this.password = password;
     }
 
-    public void checkPassword() {
+    public void submit() {
         player = "guest";
+        setSysMsg("[System Message]   ");
         System.out.println("checkPassword   ???checking user/pass: " + username + "/" + password);
         if (username.equalsIgnoreCase("max") && password.equals("123")) {
             player = "max";
@@ -141,16 +143,10 @@ public class Biz {
 //        player = "guest";
 
         System.out.println("...init");
-        removeCnt = 0;
-//        int p = 1000;
-        for (int k = 0; k <= 13; k++) {
-            addr[k] = IMG_DIR + "m" + (1000 + k) + ".jpg";
-        }
 
-        for (int k = 14; k <= 29; k++) {
-            addr[k] = IMG_DIR + "m" + (1033 + k) + ".jpg";
-        }
-
+        gf.newGame();
+        
+        
     }
 
     public String getPlayerOnHand(int player, int index) {
@@ -165,8 +161,10 @@ public class Biz {
     }
 
     public void doNewGame() {
-        init();
-//        gf=new GameField();
+        gf.init();
+
+        
+        
     }
 
     public String getCardRowImg(int k) {
@@ -239,55 +237,24 @@ public class Biz {
 
         setSysMsg("...");
         if (!isAllowed()) {
-//            System.out.println("...NOT PLAYER, NOT ALLOW TO TOUCH CARD ROW ");
             setSysMsg("...NOT PLAYER, NOT ALLOW TO TOUCH CARD ROW ");
-//         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "System Error",  "Please try again later.");
-
-//        FacesContext.getCurrentInstance().addMessage(null, message);
             return;
         }
         System.out.println(player + ", take-card " + k);
 
         if (getCurrentPlayer().equals("max")) {
-
             int card = gf.getField().get(k);
             gf.getField().set(k, 1000);
-//            List<Integer> list=gf.getP1();
-//            list.add(list.size(), card);
-//            gf.addPlayerCardCnt(1, 1);
-//            gf.getP1().set(gf.getP1CardCnt(), card);
-            
-            System.out.println(""+gf.getP1());
-
+            gf.addPlayerCardCnt(1, 1);
+            gf.getP1().set(gf.getP1CardCnt(), card);
+        }
+        if (getCurrentPlayer().equals("amy")) {
+            int card = gf.getField().get(k);
+            gf.getField().set(k, 1000);
+            gf.addPlayerCardCnt(2, 1);
+            gf.getP2().set(gf.getP2CardCnt(), card);
         }
 
-    
-//        setAddr(k, "http://2nd2go.org/ages/img/m1000.jpg");
-//        setAddr1("http://2nd2go.org/ages/img/p1000.jpg");
-//        em=GameLiveJpaController.
-////        
-//        GameLiveController gameLiveController = new GameLiveController();
-//        GameLive gameLive = gameLiveController.getGameLive(1);
-//        gameLive.setCardRow("0,0,0");
-////        gameLiveController.update();
-//                GameLive gameLive = new GameLive(2, "1,2,3", "4", "5");
-        try {
-//            utx.begin();
-//            em.persist(gameLive);
-//            utx.commit();
-//                return "login";
-        } catch (Exception e) {
-//            System.out.println(" NOT YET!!! "+e.toString());
-//                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-//                                                        "Error creating user!",
-//                                                        "Unexpected error when creating your account.  Please contact the system Administrator");
-//                context.addMessage(null, message);
-//                Logger.getAnonymousLogger().log(Level.SEVERE,
-//                                                "Unable to create new user",
-//                                                e);
-//                return null;
-        }
-
-        System.out.println("   please check db...");
+//        System.out.println("   please check db...");
     }
 }

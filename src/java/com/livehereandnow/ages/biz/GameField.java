@@ -25,9 +25,10 @@ public class GameField {
         switch (player){
             case 1:
                 p1CardCnt+=val;
+                break;
             case 2:
                 p2CardCnt+=val;
-                
+                break;   
         }
         
     }
@@ -39,7 +40,7 @@ public class GameField {
                return  p2CardCnt;
                 
         }
-        return -1;
+        return -999;
         
     }
 public int getP1CardCnt() {
@@ -58,6 +59,9 @@ public int getP1CardCnt() {
         this.p2CardCnt = p2CardCnt;
     }
     
+    public void newGame(){
+//        init();
+    }
     public List<Integer> getField() {
         return field;
     }
@@ -82,6 +86,10 @@ public int getP1CardCnt() {
     }
 
     public GameField() {
+        init();
+    }
+    
+    public void init(){
         field = new ArrayList<>();
         p1 = new ArrayList<>();
         p2 = new ArrayList<>();
@@ -93,7 +101,7 @@ public int getP1CardCnt() {
 //        p1.add(1105);
 //        p2.add(1249);
         
-        for (int index = 0; index < 7; index++) {
+        for (int index = 0; index < 13; index++) {
 
             p1.add(1000);
             p2.add(1000);

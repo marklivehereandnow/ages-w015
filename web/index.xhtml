@@ -9,9 +9,7 @@
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
-        <h1>ages-w006 2014-5-8 16:15 </h1>
-        Note: (1)resize 50% CARD ROW (2) background color (3) NOCARD color (4)no change,
-        check  <a href="faces/age1C.xhtml">age1C.xhtml</a> 
+        <h1>ages-w015 2014-5-18 19:00 on the same session to take card after login as max/amy </h1>
         <p:accordionPanel>
             <p:tab title="Login" >  
 
@@ -23,7 +21,7 @@
                         <p:inputText id="username" value="#{biz.username}" />
                         <h:outputText value="Password: " />
                         <p:password id="password" value="#{biz.password}" />
-                        <p:commandButton value="Submit" action="#{biz.checkPassword()}" update="display,"/>
+                        <p:commandButton value="Submit" action="#{biz.submit()}" update="display,"/>
                         <h:outputText value=" current player: " />
                         <h:outputText value="#{biz.currentPlayer}" id="display" />
                         <h:outputText value=" system message: " />
@@ -32,12 +30,6 @@
 
 
 
-                        <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
-                            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" onclick="#{biz.doNewGame()}">
-                                <f:ajax render="@form" />
-                            </p:commandButton>
-                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>     
-                        </p:confirmDialog>
                         <h:commandButton action="#{biz.doNewGame()}" title="Step 1" value="New Game"  >
                             <f:ajax render="@form" />
                         </h:commandButton>
@@ -93,89 +85,103 @@
                             <f:ajax render="@form" />
                         </h:commandButton>
 
+                        <p:accordionPanel>
+                            <p:tab title="max" >  
+                                <h:commandButton action="#{biz.doAAA(999)}" image="#{biz.getImageById(1105)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 0)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 1)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 2)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 3)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 4)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 5)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 6)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 7)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 8)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 9)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 10)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 11)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 12)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                            </p:tab>
+                            <p:tab title="amy" >  
 
-                        <hr></hr>
-                        AAA<br></br>
-                        <h:commandButton action="#{biz.doAAA(999)}" image="#{biz.getImageById(1105)}" >
-                            <f:ajax render="@form" />
-                        </h:commandButton>
-                        <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 0)}" >
-                            <f:ajax render="@form" />
-                        </h:commandButton>
-                        <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 1)}" >
-                            <f:ajax render="@form" />
-                        </h:commandButton>
-                        <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 2)}" >
-                            <f:ajax render="@form" />
-                        </h:commandButton>
-                        <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 3)}" >
-                            <f:ajax render="@form" />
-                        </h:commandButton>
+                                <h:commandButton action="#{biz.doBBB(999)}" image="#{biz.getImageById(1249)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
 
-                        <hr></hr>
-                        BBB<br></br>
-                        <h:commandButton action="#{biz.doBBB(999)}" image="#{biz.getImageById(1249)}" >
-                            <f:ajax render="@form" />
-                        </h:commandButton>
-
-
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 0)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 1)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 2)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 3)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 4)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 5)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 6)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 7)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 8)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 9)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 10)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 11)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 12)}" >
+                                    <f:ajax render="@form" />
+                                </h:commandButton>
+                            </p:tab>
+                        </p:accordionPanel>
 
                     </h:form>
                 </h:panelGrid>
             </p:tab>
-            <p:tab title="On Table">
-                <h1>===</h1>
-                <h1>===</h1>
 
-                <h:form>
-                    <h:graphicImage id="h1" value="/resources/img/p1010.jpg" />
-                    <p:draggable for="h1" revert="true"  />
-
-                    <h:graphicImage id="h2" value="/resources/img/p1011.jpg" />
-                    <p:draggable for="h2" revert="true"  />
-
-                    <h:graphicImage id="h3" value="/resources/img/p1007.jpg" />
-                    <p:draggable for="h3" revert="true"  />
-
-                    <h:graphicImage id="h4" value="/resources/img/p1032.jpg" />
-                    <p:draggable for="h4" revert="true" />
-
-                    <h:graphicImage id="h5" value="/resources/img/p1018.jpg" />
-                    <p:draggable for="h5" revert="true"  />
-                    <h:graphicImage id="h6" value="/resources/img/p1001.jpg" />
-                    <p:draggable for="h6" revert="true"  />
-                </h:form>
-                <!--                <h:form>
-                    <h:graphicImage id="p1078" value="/resources/img/p1078.jpg" />
-                    <p:draggable for="p1078" grid="180,30"  />
-
-                    <h:graphicImage id="p1079" value="/resources/img/p1079.jpg" />
-                    <p:draggable for="p1079" grid="180,30"  />
-
-                    <h:graphicImage id="p1080" value="/resources/img/p1080.jpg" />
-                    <p:draggable for="p1080" grid="180,30"  />
-
-                    <h:graphicImage id="p1081" value="/resources/img/p1081.jpg" />
-                    <p:draggable for="p1081" grid="180,30"  />
-                </h:form>-->
-
-
-
-            </p:tab>
-            <p:tab title="On Hand">
-                <h1>===</h1>
-                <h:graphicImage id="hand1" value="/resources/img/p1000.jpg" />
-                <p:draggable for="hand1"   />
-                <h:graphicImage id="hand2" value="/resources/img/p1000.jpg" />
-                <p:draggable for="hand2"   />
-                <h:graphicImage id="hand3" value="/resources/img/p1000.jpg" />
-                <p:draggable for="hand3"   />
-                <h:graphicImage id="hand4" value="/resources/img/p1000.jpg" />
-                <p:draggable for="hand4"   />
-
-
-
-            </p:tab>
 
         </p:accordionPanel>
 
