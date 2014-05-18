@@ -84,9 +84,8 @@
                         <h:commandButton action="#{biz.actTakeCard(12)}" image="#{biz.getCardRowImg(12)}" >
                             <f:ajax render="@form" />
                         </h:commandButton>
-
-                        <p:accordionPanel>
-                            <p:tab title="max" >  
+                        <br></br>
+                        <hr></hr>
                                 <h:commandButton action="#{biz.doAAA(999)}" image="#{biz.getImageById(1105)}" >
                                     <f:ajax render="@form" />
                                 </h:commandButton>
@@ -117,21 +116,9 @@
                                 <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 8)}" >
                                     <f:ajax render="@form" />
                                 </h:commandButton>
-                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 9)}" >
-                                    <f:ajax render="@form" />
-                                </h:commandButton>
-                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 10)}" >
-                                    <f:ajax render="@form" />
-                                </h:commandButton>
-                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 11)}" >
-                                    <f:ajax render="@form" />
-                                </h:commandButton>
-                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(1, 12)}" >
-                                    <f:ajax render="@form" />
-                                </h:commandButton>
-                            </p:tab>
-                            <p:tab title="amy" >  
-
+                           
+                        
+                        <hr></hr>
                                 <h:commandButton action="#{biz.doBBB(999)}" image="#{biz.getImageById(1249)}" >
                                     <f:ajax render="@form" />
                                 </h:commandButton>
@@ -163,21 +150,7 @@
                                 <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 8)}" >
                                     <f:ajax render="@form" />
                                 </h:commandButton>
-                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 9)}" >
-                                    <f:ajax render="@form" />
-                                </h:commandButton>
-                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 10)}" >
-                                    <f:ajax render="@form" />
-                                </h:commandButton>
-                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 11)}" >
-                                    <f:ajax render="@form" />
-                                </h:commandButton>
-                                <h:commandButton action="#{biz.doAAA(0)}" image="#{biz.getPlayerOnHand(2, 12)}" >
-                                    <f:ajax render="@form" />
-                                </h:commandButton>
-                            </p:tab>
-                        </p:accordionPanel>
-
+                        
                     </h:form>
                 </h:panelGrid>
             </p:tab>
